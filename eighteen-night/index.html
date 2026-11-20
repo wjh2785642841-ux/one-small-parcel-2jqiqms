@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101b2a">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="description" content="彬哥，往前走两步。你兄弟给你留了点东西。">
+  <meta property="og:title" content="给彬哥留的">
+  <meta property="og:description" content="往前走两步。">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://wjh2785642841-ux.github.io/one-small-parcel-2jqiqms/eighteen-night/shore.jpg">
+  <title>给彬哥留的</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./scratch.js" defer></script>
+  <script src="./finale.js" defer></script>
+  <script src="./keepsake.js" defer></script>
+  <script src="./journey.js" defer></script>
+</head>
+<body>
+  <header class="route" id="route" hidden>
+    <div class="route-line"><button class="back" id="back" type="button">回上一幕</button><span id="stage-label"></span></div>
+    <progress id="route-progress" max="8" value="1" aria-label="生日旅程进度"></progress>
+  </header>
+  <main id="journey" data-current="shore">
+    <section class="stage shore" id="shore" data-name="海边" aria-labelledby="shore-heading">
+      <div class="shore-copy">
+        <p class="eyebrow">你兄弟留的</p>
+        <h1 id="shore-heading" tabindex="-1">彬哥，<br>往前走两步。</h1>
+        <p>给你留了点东西，得你自己来拆。</p>
+        <button class="button" type="button" data-next>过去看看</button>
+      </div>
+    </section>
+
+    <section class="stage" id="birthday-card" data-name="一张贺卡" aria-labelledby="card-heading" hidden>
+      <div class="chapter">
+        <header class="chapter-heading"><h2 id="card-heading" tabindex="-1">给彬哥留的。</h2></header>
+        <button class="seal-card" id="seal-card" type="button" aria-describedby="seal-hint"><span class="seal-name">彬哥</span><span class="seal-instruction">敲一下</span></button>
+        <p class="subtle" id="seal-hint" role="status">敲三下，看看藏了什么。</p>
+        <div class="age-reveal" id="age-reveal" hidden>
+          <div class="age-main"><strong>18</strong><span>岁</span></div>
+          <div><h3>生日快乐，彬哥！</h3><p>原来你已经在地球上待满了 216 个月。<br>第 217 个月的第一块蛋糕给你。</p></div>
+        </div>
+        <button class="button" type="button" id="to-cake" data-next hidden>去点蜡烛</button>
+      </div>
+    </section>
+
+    <section class="stage" id="cake" data-name="蜡烛和许愿灯" data-cake="unlit" aria-labelledby="cake-heading" hidden>
+      <div class="chapter cake-chapter">
+        <header class="chapter-heading"><h2 id="cake-heading" tabindex="-1">这根你来点。</h2></header>
+        <figure class="cake-photo" aria-hidden="true">
+          <img class="cake-image" src="birthday-cake.jpg" width="1000" height="1000" alt="">
+          <div class="cake-glow"></div><div class="cake-flame"></div><div class="wish-sky"></div><div class="wish-ember"></div>
+          <img class="lantern" src="wish-lantern.png" width="264" height="251" alt="">
+        </figure>
+        <div class="cake-actions">
+          <button class="button" type="button" id="light">点亮蜡烛</button>
+          <div class="stack" id="blow-actions" hidden><p>想个愿望，想好了再吹。</p><button class="button" type="button" id="blow">吹蜡烛</button></div>
+          <div class="stack" id="wish-actions" hidden>
+            <p>愿望想好了，就送它上去。</p>
+            <label class="wish-label" for="wish-input">留一句愿望</label>
+            <input class="wish-input" type="text" id="wish-input" maxlength="36" placeholder="也可以只在心里想" autocomplete="off">
+            <button class="button" type="button" id="launch">放一盏灯</button>
+          </div>
+          <div class="stack" id="launched" hidden><p id="wish-caption">灯升起来了。我们继续走。</p><button class="button" type="button" data-next>沿海边走走</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stage" id="notes" data-name="海边三张纸条" aria-labelledby="notes-heading" hidden>
+      <div class="chapter">
+        <header class="chapter-heading"><h2 id="notes-heading" tabindex="-1">捡到三张纸条。</h2><p>翻开看看，都是你兄弟写的。</p></header>
+        <div class="notes" id="joke-notes">
+          <details><summary>十八岁第一道题</summary><p>以后别人问你吃啥，「都行」不能再当菜名了。</p></details>
+          <details><summary>关于今天的彬哥</summary><p>今天你说什么都对。明天你拿截图来，我可不认。</p></details>
+          <details><summary>兄弟友情提醒</summary><p>今日份免挨损，到今晚十二点。续期免谈。</p></details>
+        </div>
+        <button class="button" type="button" data-next>继续往前</button>
+      </div>
+    </section>
+
+    <section class="stage" id="coupon" data-name="一张刮刮卡" aria-labelledby="coupon-heading" hidden>
+      <div class="chapter">
+        <header class="chapter-heading"><h2 id="coupon-heading" tabindex="-1">这张得刮开。</h2><p>用手指在卡面上划一划。</p></header>
+        <div class="scratch-ticket" id="scratch-ticket">
+          <div id="scratch-prize" class="scratch-prize" aria-hidden="true"><p class="eyebrow">下次见面用</p><h3>一起吃顿饭。</h3><p>你哪天有空，发我一声。</p></div>
+          <canvas id="scratch-canvas" aria-hidden="true"></canvas>
+        </div>
+        <button class="button button-outline" id="reveal-scratch" type="button">直接揭开</button>
+        <button class="button" id="to-letter" type="button" data-next hidden>去拆那封信</button>
+      </div>
+    </section>
+
+    <section class="stage" id="letter-stage" data-name="给彬哥的信" aria-labelledby="letter-scene-heading" hidden>
+      <div class="chapter chapter-letter">
+        <header class="chapter-heading" id="letter-intro"><h2 id="letter-scene-heading" tabindex="-1">还有一封信。</h2><p>刚才那些是闹你的。这封我想好好说。</p></header>
+        <button class="envelope" id="open-letter" type="button"><span class="envelope-recipient">给彬哥</span><span class="envelope-action">拆开信</span></button>
+        <article class="letter" id="letter" hidden>
+          <p class="letter-to">给彬哥</p>
+          <h2 id="letter-heading" tabindex="-1">平时没怎么说的几句。</h2>
+          <p class="letter-text">给你做这个网页的时候，我想了挺久，到底有什么话非得今天说。说到底，我就想让你知道，有你这么个兄弟，我是真高兴。</p>
+          <p class="letter-text">以后哪天心里堵得慌，不用先把事情想明白。给我发句「出来吃饭」就行。想说我就听，没话也能把饭吃完。</p>
+          <p class="letter-text">遇上好事也记得来跟我显摆。下回见面我八成还是会损你。可今天写下来的这些，都算数。</p>
+          <p class="letter-text">十八岁生日快乐啊，彬哥。</p>
+          <p class="signature">你兄弟</p>
+        </article>
+        <div class="letter-actions" id="letter-actions" hidden><button class="button button-outline" id="save-letter" type="button">把信存下来</button><button class="button" type="button" data-next>接着走</button></div>
+        <p class="subtle" id="save-message" role="status"></p>
+      </div>
+    </section>
+
+    <section class="stage" id="later" data-name="留给以后的三张" aria-labelledby="later-heading" hidden>
+      <div class="chapter">
+        <header class="chapter-heading"><h2 id="later-heading" tabindex="-1">这三张给以后的你。</h2><p>现在看也行。哪天想起来了，再回来翻。</p></header>
+        <div class="notes notes-later">
+          <details><summary>碰上好事的时候</summary><p>发给我。直接一句「我牛不牛」就行。</p></details>
+          <details><summary>有点烦的时候</summary><p>给我发个「能说话吗」。你慢慢讲，我听着。</p></details>
+          <details><summary>十九岁生日那天</summary><p>要是还找得到这页，截个图发我。好让我知道该端下一块蛋糕了。</p></details>
+        </div>
+        <button class="button" type="button" data-next>看看天亮了没</button>
+      </div>
+    </section>
+
+    <section class="stage dawn" id="dawn" data-name="天亮了" aria-labelledby="dawn-heading" hidden>
+      <div class="chapter dawn-chapter">
+        <canvas class="star-finale" id="star-finale" aria-hidden="true"></canvas>
+        <header class="chapter-heading"><p class="eyebrow">海这边天亮了。</p><h2 id="dawn-heading" tabindex="-1">彬哥，生日快乐。</h2><p>下次见。记得那顿饭。</p></header>
+        <button class="button button-outline" id="restart" type="button">回到海边</button>
+      </div>
+    </section>
+    <noscript><div class="noscript-note">十八岁生日快乐啊，彬哥。—— 你兄弟</div></noscript>
+  </main>
+</body>
+</html>
