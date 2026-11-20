@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#170a0e">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="description" content="有个小东西，记得亲手拆。">
+  <meta property="og:title" content="有个东西给你">
+  <meta property="og:description" content="有个小东西，记得亲手拆。">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://wjh2785642841-ux.github.io/one-small-parcel-2jqiqms/parcel.jpg">
+  <title>有个东西给你</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./birthday.js" defer></script>
+</head>
+<body>
+  <main class="parcel" id="parcel">
+    <header class="parcel-header">
+      <div class="wordmark"><span aria-hidden="true">✦</span> 私人投递</div>
+      <p class="recipient">收件人 <strong>彬哥</strong></p>
+    </header>
+
+    <section class="cover scene" id="cover" aria-labelledby="cover-heading">
+      <div class="cover-copy">
+        <p class="eyebrow">彬哥，借你十秒。</p>
+        <h1 id="cover-heading" tabindex="-1">有个东西<br>给你<span>。</span></h1>
+        <p class="cover-note">记得亲手拆。</p>
+      </div>
+      <figure class="gift">
+        <img src="./parcel.jpg" width="980" height="980" fetchpriority="high" alt="系着酒红色缎带的礼物盒">
+        <span class="corner top-left" aria-hidden="true"></span>
+        <span class="corner top-right" aria-hidden="true"></span>
+        <span class="corner bottom-left" aria-hidden="true"></span>
+        <span class="corner bottom-right" aria-hidden="true"></span>
+      </figure>
+      <div class="cover-actions">
+        <button class="button button-cream" id="open-gift" type="button"><span aria-hidden="true">✦</span> 拆开看看</button>
+      </div>
+      <noscript class="no-script">彬哥，18 岁生日快乐！想做的事就去试，遇到难事记得喊我。—— 你兄弟</noscript>
+    </section>
+
+    <section class="celebration scene" id="celebration" aria-labelledby="birthday-heading" hidden>
+      <div class="birthday-copy">
+        <p class="eyebrow">彬哥，恭喜成年。</p>
+        <h2 id="birthday-heading" tabindex="-1">18 岁<br>生日快乐<span>！</span></h2>
+        <p class="joke">年龄升级了，幼稚可以照旧。<br>以后再干傻事，就叫积累人生经验。</p>
+      </div>
+      <div class="cake-scene" id="cake-scene" aria-hidden="true">
+        <span class="age-art">18</span>
+        <span class="cake-sparkle sparkle-one">✧</span><span class="cake-sparkle sparkle-two">✦</span>
+        <div class="cake">
+          <div class="candlelight"></div>
+          <div class="candle candle-left"><i class="flame"></i></div>
+          <div class="candle candle-middle"><i class="flame"></i></div>
+          <div class="candle candle-right"><i class="flame"></i></div>
+          <div class="cake-plate"></div>
+          <div class="cake-body"></div>
+          <div class="cake-top"></div>
+          <div class="cake-drops"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+      </div>
+      <div class="wish-actions">
+        <p class="wish-note" id="wish-note" aria-live="polite">先想一个愿望，别告诉我。</p>
+        <button class="button button-cream" id="blow-candles" type="button">吹蜡烛</button>
+        <button class="button button-cream" id="open-letter" type="button" hidden>看看盒底的信</button>
+      </div>
+    </section>
+
+    <section class="letter-scene scene" id="letter-scene" aria-labelledby="letter-heading" hidden>
+      <article class="letter">
+        <div class="letter-top"><p class="eyebrow">写给彬哥</p><span class="letter-stamp" aria-hidden="true">18</span></div>
+        <h2 id="letter-heading" tabindex="-1">说点认真的。</h2>
+        <p>平时见面光顾着互损，有句话还真没怎么说过：有你这个兄弟，我挺高兴的。</p>
+        <p>十八岁了，想做的事就去试。遇到难事别一个人扛，给我发个消息。哪怕以后各忙各的，有空也要出来吃顿饭。</p>
+        <p>彬哥，生日快乐。愿你今年能做成一件自己想了很久的事。</p>
+        <p class="signature">你兄弟</p>
+        <p class="postscript">蛋糕记得分我一口。</p>
+      </article>
+      <button class="button button-outline" id="replay" type="button">再拆一次</button>
+    </section>
+
+    <footer class="parcel-footer"><span>寄件人 <strong>你兄弟</strong></span><span id="parcel-status">待拆封</span></footer>
+  </main>
+  <div class="confetti" id="confetti" aria-hidden="true"></div>
+</body>
+</html>
