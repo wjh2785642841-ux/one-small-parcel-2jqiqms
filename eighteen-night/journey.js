@@ -123,6 +123,19 @@ wishInput.addEventListener('keydown', event => {
 });
 
 revealButton.addEventListener('click', () => scratch.show());
+let couponTap;
+toLetter.addEventListener('pointerdown', event => {
+  couponTap = event.pointerType === 'touch' ? { id: event.pointerId, x: event.clientX, y: event.clientY } : null;
+});
+toLetter.addEventListener('pointerup', event => {
+  const start = couponTap;
+  couponTap = null;
+  if (!start || start.id !== event.pointerId || Math.hypot(event.clientX - start.x, event.clientY - start.y) > 12) return;
+  // Give the native click priority when a browser delivers one after scratching.
+  window.setTimeout(() => {
+    if (stages[stageIndex].id === 'coupon' && !toLetter.hidden) toLetter.click();
+  }, 85);
+});
 envelope.addEventListener('click', () => {
   letterIntro.hidden = true;
   envelope.hidden = true;
@@ -150,7 +163,10 @@ saveButton.addEventListener('click', async () => {
 });
 
 for (const button of journey.querySelectorAll('[data-next]')) {
-  button.addEventListener('click', () => showStage(stageIndex + 1));
+  const owner = button.closest('.stage');
+  button.addEventListener('click', () => {
+    if (owner === stages[stageIndex]) showStage(stageIndex + 1);
+  });
 }
 document.getElementById('back').addEventListener('click', () => showStage(stageIndex - 1));
 document.getElementById('restart').addEventListener('click', () => {

@@ -92,6 +92,7 @@ function createScratchCard(canvas, reveal) {
 
   function measureProgress() {
     frame = 0;
+    if (activePointer !== null) return;
     const { data } = maskContext.getImageData(0, 0, mask.width, mask.height);
     let removed = 0;
     for (let index = 3; index < data.length; index += 4) removed += data[index];
@@ -127,7 +128,6 @@ function createScratchCard(canvas, reveal) {
     drawStroke(maskContext, start, point, radius);
     maskContext.resetTransform();
     previousPoint = point;
-    if (!frame) frame = requestAnimationFrame(measureProgress);
   }
 
   function reset() {
@@ -151,7 +151,9 @@ function createScratchCard(canvas, reveal) {
   });
   for (const type of ['pointerup', 'pointercancel']) {
     window.addEventListener(type, event => {
-      if (event.pointerId === activePointer) stopStroke();
+      if (event.pointerId !== activePointer) return;
+      stopStroke();
+      if (!frame) frame = requestAnimationFrame(measureProgress);
     }, { capture: true });
   }
   window.addEventListener('blur', () => stopStroke(true));
