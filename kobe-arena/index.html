@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#141019">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="彬哥的 18 岁生日主场。选 8 号或 24 号球衣，上场投三球，拆开兄弟送你的生日卡。">
+  <title>彬哥的 18 岁主场｜科比球迷生日致敬</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="arena.css">
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <header class="top">
+    <div class="top-inner">
+      <div class="brand">
+        <span class="brand-ball" aria-hidden="true"></span>
+        <div><strong>彬哥的主场</strong><span>18TH BIRTHDAY GAME</span></div>
+      </div>
+      <div class="top-controls">
+        <button class="utility" type="button" data-action="info" aria-expanded="false" aria-controls="credits"><span aria-hidden="true" class="info-icon">i</span><span>素材</span></button>
+        <button class="utility sound" type="button" data-action="mute" aria-pressed="false"><span class="sound-dot" aria-hidden="true"></span><span data-sound-label>音效开</span></button>
+      </div>
+      <span class="visually-hidden" role="status" data-sound-status></span>
+    </div>
+  </header>
+
+  <aside class="credits" id="credits" data-credits hidden>
+    <div class="credits-head">
+      <h2>关于这场主场赛</h2>
+      <button class="utility" type="button" data-action="close-info">关闭</button>
+    </div>
+    <p>这是你兄弟送你的球迷致敬。「老大祝你生日快乐」是写给彬哥的封面文案。</p>
+    <p>每次操作听到的「Man!」是原创合成音效，非科比原声。可以随时静音。</p>
+    <p>科比照片由 Keith Allison 拍摄，本站裁切、压缩并作色调处理。更衣室与球馆是原创生成图。</p>
+    <p><a href="https://commons.wikimedia.org/wiki/File:Kobe_Bryant_Dec_2014.jpg" target="_blank" rel="noopener noreferrer">科比照片来源</a> · <a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 2.0</a></p>
+  </aside>
+
+  <main class="main">
+    <section class="scene hero" data-scene="cover" aria-labelledby="cover-title">
+      <div class="hero-art">
+        <div class="hero-num" aria-hidden="true">24</div>
+        <img src="assets/kobe-cover.webp" alt="身穿紫金 24 号球衣的科比·布莱恩特" width="1050" height="1050" fetchpriority="high">
+        <div class="hero-caption"><b>KOBE BRYANT</b><span>08 / 24</span></div>
+      </div>
+      <div class="hero-content">
+        <p class="eyebrow"><span></span> 科比球迷致敬</p>
+        <h1 id="cover-title" tabindex="-1">老大祝你<br><em>生日快乐</em></h1>
+        <p class="hero-description">彬哥，18 岁这场，你打主场。</p>
+        <button class="btn primary hero-button" type="button" data-action="enter"><span class="ball-icon" aria-hidden="true"></span>进球馆</button>
+      </div>
+    </section>
+
+    <section class="scene split locker" data-scene="locker" aria-labelledby="locker-title" hidden>
+      <figure class="scene-picture locker-picture">
+        <img src="assets/locker.webp" width="1200" height="800" alt="更衣室里挂着科比的两件代表号码球衣，8 号和 24 号">
+      </figure>
+      <div class="scene-content">
+        <p class="eyebrow"><span></span> 更衣室</p>
+        <h2 id="locker-title" tabindex="-1">今天几号上场？</h2>
+        <p class="lede">衣柜里给彬哥留了两件球衣。挑一个科比的号码，穿它上场。</p>
+        <div class="jerseys" role="group" aria-label="选择球衣号码">
+          <button class="jersey jersey-eight" type="button" data-action="jersey" data-number="8" aria-pressed="false"><strong>08</strong><span>年轻的飞侠</span></button>
+          <button class="jersey jersey-twentyfour" type="button" data-action="jersey" data-number="24" aria-pressed="false"><strong>24</strong><span>黑曼巴</span></button>
+        </div>
+        <button class="btn primary" type="button" data-action="court" disabled>穿上球衣，上场</button>
+      </div>
+    </section>
+
+    <section class="scene court-scene" data-scene="court" aria-labelledby="court-title" hidden>
+      <div class="court-heading">
+        <div>
+          <p class="eyebrow"><span></span> <span data-bind="jersey">24</span> 号 · 披挂上场</p>
+          <h2 id="court-title" tabindex="-1">三球定手感</h2>
+        </div>
+        <div class="scoreboard" aria-label="投篮记分牌">
+          <div><span>得分</span><b data-bind="score">0</b></div>
+          <div><span>命中</span><b><span data-bind="made">0</span><small>/<span data-bind="attempts">0</span></small></b></div>
+        </div>
+      </div>
+      <div class="court" data-court data-result="idle" aria-hidden="true">
+        <div class="court-light"></div>
+        <div class="court-mark court-mark-left">08</div>
+        <div class="court-mark court-mark-right">24</div>
+        <div class="backboard"><i></i></div>
+        <div class="rim"></div>
+        <div class="net"></div>
+        <div class="ball" data-ball></div>
+      </div>
+      <div class="court-controls">
+        <div class="shot-info">
+          <p class="meter-instruction">指针经过<span>金色区</span>时，点「出手」。</p>
+          <ol class="attempts" aria-label="三次出手机会">
+            <li data-attempt="1">1</li><li data-attempt="2">2</li><li data-attempt="3">3</li>
+          </ol>
+        </div>
+        <div class="meter" data-meter aria-hidden="true"><div class="meter-zone"></div><div class="meter-needle"></div></div>
+        <p class="feedback" data-bind="feedback" role="status" aria-live="polite">准备好就开球。</p>
+        <div class="court-actions">
+          <button class="btn primary" type="button" data-action="start">开始投篮</button>
+          <button class="btn primary" type="button" data-action="shoot" disabled hidden>出手</button>
+          <button class="btn primary" type="button" data-action="card" hidden>领生日卡</button>
+          <button class="btn secondary court-alternate" type="button" data-action="back" data-target="locker">换球衣</button>
+          <button class="btn secondary court-alternate" type="button" data-action="retry" hidden>再投三球</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene split card-scene" data-scene="card" aria-labelledby="card-title" hidden>
+      <div class="card-stage">
+        <div class="court-drawing" aria-hidden="true"></div>
+        <div class="ticket">
+          <div class="ticket-top"><span>彬哥 · 生日主场</span><span>08 / 24</span></div>
+          <div class="ticket-age" aria-label="18 岁">18</div>
+          <div class="ticket-bottom"><span><b>主场球员</b>彬哥</span><span><b>球衣号码</b><span data-bind="jersey">24</span> 号</span></div>
+        </div>
+      </div>
+      <div class="scene-content">
+        <p class="eyebrow"><span></span> 赛后生日卡</p>
+        <h2 id="card-title" tabindex="-1">主场球员，彬哥</h2>
+        <p class="lede" data-bind="card-summary">这张卡是你的。</p>
+        <div class="card-content" data-card-content hidden>
+          <strong>彬哥，18 岁生日快乐！</strong>
+          <p>恭喜正式升入成人组。以后能请客了，我先把位子占了。</p>
+        </div>
+        <button class="btn primary" type="button" data-action="open-card">翻开生日卡</button>
+        <button class="btn primary" type="button" data-action="letter" hidden>去更衣室拿信</button>
+      </div>
+    </section>
+
+    <section class="scene split letter-scene" data-scene="letter" aria-labelledby="letter-title" hidden>
+      <figure class="scene-picture letter-picture">
+        <img src="assets/locker.webp" width="1200" height="800" alt="">
+        <span class="letter-numbers" aria-hidden="true">08<span></span>24</span>
+      </figure>
+      <div class="scene-content">
+        <p class="eyebrow"><span></span> 终场 · 更衣室</p>
+        <h2 id="letter-title" tabindex="-1">彬哥，留一下</h2>
+        <button class="btn primary" type="button" data-action="open-letter">拆开兄弟的信</button>
+        <div class="letter-content" data-letter-content hidden>
+          <p>彬哥，</p>
+          <p>刚才还能跟你贫两句，这儿就认真说了。十八岁生日快乐。</p>
+          <p>以后遇到真想做的事，就认真去试。投丢一球许多人都看得见，愿意捡起球再来一次，才是自己的本事。遇上累的时候，也可以坐会儿，喘口气再打。</p>
+          <p>有好消息就来跟我显摆。碰上难受的事，喊我吃个饭，你想说我就听。你什么时候找我，都还是我兄弟。</p>
+          <p>祝你这一岁打得痛快，过得踏实，常常有想大笑的时候。</p>
+          <p class="signature">你兄弟</p>
+        </div>
+        <button class="btn secondary" type="button" data-action="replay" hidden>再打一场</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="progress" aria-label="主场赛进度">
+    <ol>
+      <li data-step="cover" aria-current="step"><span>入场</span></li>
+      <li data-step="locker"><span>球衣</span></li>
+      <li data-step="court"><span>投篮</span></li>
+      <li data-step="card"><span>生日卡</span></li>
+      <li data-step="letter"><span>兄弟信</span></li>
+    </ol>
+  </footer>
+  <noscript><p class="noscript">启用 JavaScript 后就能上场。彬哥，18 岁生日快乐！</p></noscript>
+</body>
+</html>
